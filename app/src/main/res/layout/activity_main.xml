@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.seatrend.myapplication.MainActivity"
+    android:id="@+id/linear"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/m_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_margin="32dp"
+        />
+    <TextView
+        android:id="@+id/m_text_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!222"
+        android:layout_margin="32dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="BtnOnClick"
+        android:text="GOGOGO"/>
+
+    <Button
+        android:id="@+id/sb_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sbOnClick"
+        android:text="snackbar_test"/>
+    <Button
+        android:id="@+id/flash_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="flashOnClick"
+        android:text="开起闪光灯"/>
+    <Button
+        android:id="@+id/web_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="webOnClick"
+        android:text="webview"/>
+    <Button
+        android:id="@+id/bezier_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="bezierOnClick"
+        android:text="贝赛尔曲线"/>
+
+    <Button
+        android:id="@+id/btn_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="blueToothOnClick"
+        android:text="蓝牙测试"/>
+
+    <Button
+        android:id="@+id/btn_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="SocketOnClick"
+        android:text="socket测试"/>
+</LinearLayout>

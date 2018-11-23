@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.seatrend.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Main2Activity" />
+
+        <receiver android:name=".AppInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".test.testre">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".test.KeepLiveActivity" />
+
+        <service android:name=".MySercive" />
+
+        <activity android:name=".DownLoadActivity" />
+        <activity android:name=".JavaTest.WebViewActivity" />
+        <activity android:name=".BezierLineActivity" />
+        <activity android:name=".activity.ConstraintLayoutActivity" />
+        <activity android:name=".activity.BlueToothActivity" />
+        <activity android:name=".activity.FolatTestActivity" />
+
+        <service android:name=".test.FolatService" />
+
+        <activity android:name=".activity.MyLinearLayoutManagerActivity" />
+        <activity android:name=".activity.RxJavaTestActivity" />
+
+        <service
+            android:name=".MyAidlService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.seatrend.myapplication.MyAidlService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activity.QRTestActivity" />
+        <activity android:name=".activity.TaskTestActivity" />
+        <activity android:name=".activity.CropTestActivity" />
+        <activity android:name=".activity.SocketDemoActivity" />
+        <activity android:name=".activity.CameraActivity" />
+        <activity
+            android:name=".activity.TestDefinedCameraActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.QianMingActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.HttpTestActivity"></activity>
+    </application>
+
+</manifest>
