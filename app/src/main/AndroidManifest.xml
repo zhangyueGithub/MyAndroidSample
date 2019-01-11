@@ -91,7 +91,12 @@
         <activity
             android:name=".activity.QianMingActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.HttpTestActivity"></activity>
+        <activity android:name=".activity.HttpTestActivity" />
+        <activity android:name=".activity.ZoomActivity" />
+        <activity android:name=".activity.VideoActivity" />
+        <activity android:name=".activity.MyVideoActivity" />
+        <activity android:name=".activity.NetWorkVideoActivity" />
+        <activity android:name=".activity.FullScreenPalyActivity"></activity>
     </application>
 
 </manifest>

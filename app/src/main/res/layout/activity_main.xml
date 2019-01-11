@@ -66,4 +66,28 @@
         android:layout_height="wrap_content"
         android:onClick="SocketOnClick"
         android:text="socket测试"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="playerOnClick"
+            android:text="播放器"/>
+        <Button
+            android:id="@+id/btn_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="playerOnClick2"
+            android:text="播放器2"/>
+
+        <Button
+            android:id="@+id/btn_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="playerOnClick3"
+            android:text="播放器3"/>
+    </LinearLayout>
+
 </LinearLayout>

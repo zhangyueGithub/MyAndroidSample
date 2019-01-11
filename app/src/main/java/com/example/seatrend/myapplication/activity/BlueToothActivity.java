@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.seatrend.myapplication.MainActivity;
 import com.example.seatrend.myapplication.R;
 
 public class BlueToothActivity extends AppCompatActivity implements View.OnClickListener{
@@ -64,5 +65,9 @@ public class BlueToothActivity extends AppCompatActivity implements View.OnClick
     protected void onPause() {
         super.onPause();
         mBluetoothAdapter.stopLeScan(mLeScanCallback);
+    }
+
+    private void tees(){
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

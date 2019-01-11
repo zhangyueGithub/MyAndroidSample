@@ -30,11 +30,16 @@ import com.example.seatrend.myapplication.JavaTest.NetWorkSpeedUtils;
 import com.example.seatrend.myapplication.JavaTest.RSAUtils;
 import com.example.seatrend.myapplication.JavaTest.Utils;
 import com.example.seatrend.myapplication.JavaTest.WebViewActivity;
+import com.example.seatrend.myapplication.activity.BlueToothActivity;
 import com.example.seatrend.myapplication.activity.HttpTestActivity;
+import com.example.seatrend.myapplication.activity.MyVideoActivity;
+import com.example.seatrend.myapplication.activity.NetWorkVideoActivity;
 import com.example.seatrend.myapplication.activity.QianMingActivity;
 import com.example.seatrend.myapplication.activity.TestDefinedCameraActivity;
 import com.example.seatrend.myapplication.activity.FolatTestActivity;
 import com.example.seatrend.myapplication.activity.SocketDemoActivity;
+import com.example.seatrend.myapplication.activity.VideoActivity;
+import com.example.seatrend.myapplication.activity.ZoomActivity;
 import com.example.seatrend.myapplication.test.TestOnClick;
 
 import java.util.List;
@@ -77,6 +82,13 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
             }
         });
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            boolean b = EasyPermissions.hasPermissions(this, mPermissionList);
+            if(!b){
+                EasyPermissions.requestPermissions(this,"EasyPermissions 请求权限",6,mPermissionList);
+            }
+        }
 
     }
 
@@ -264,7 +276,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
 
         private String [] mPermissionList={Manifest.permission.CAMERA,
-        Manifest.permission.LOCATION_HARDWARE,Manifest.permission.CAPTURE_VIDEO_OUTPUT,Manifest.permission.CALL_PHONE};
+        Manifest.permission.LOCATION_HARDWARE,
+                Manifest.permission.CAPTURE_VIDEO_OUTPUT,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.CALL_PHONE};
     public void flashOnClick(View view) {
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
@@ -400,12 +416,24 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     public void blueToothOnClick(View view) {
         //startActivity(new Intent(this, BlueToothActivity.class));
-        startActivity(new Intent(this, HttpTestActivity.class));
+        startActivity(new Intent(this, ZoomActivity.class));
         //String currentWifiName = Utils.getCurrentWifiName(this);
         //Log.i("currentWifiName"," currentWifiName ==  "+currentWifiName);
     }
 
     public void SocketOnClick(View view) {
         startActivity(new Intent(this, SocketDemoActivity.class));
+    }
+
+    public void playerOnClick(View view) {
+        startActivity(new Intent(this, VideoActivity.class));
+    }
+
+    public void playerOnClick2(View view) {
+        startActivity(new Intent(this, MyVideoActivity.class));
+    }
+
+    public void playerOnClick3(View view) {
+        startActivity(new Intent(this, NetWorkVideoActivity.class));
     }
 }

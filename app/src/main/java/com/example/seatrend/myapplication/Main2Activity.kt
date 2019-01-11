@@ -34,6 +34,7 @@ class Main2Activity : AppCompatActivity() ,TestView{
   var array2= intArrayOf(1,1,1,1,1,11,1,1);
     var  array3= arrayOfNulls<String>(10)
 
+
     var arrar4= floatArrayOf(2.56f,2.34f)
     var arrar5= doubleArrayOf(2.366,248.6563,96.315)
     var lis=ArrayList<String>();

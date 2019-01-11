@@ -10,10 +10,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onScanTest"
+        android:visibility="visible"
         android:text="测试"/>
     <TextView
         android:id="@+id/tv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_margin="6dp" />
+    <com.example.seatrend.myapplication.view.CheckBoxLinearlayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.example.seatrend.myapplication.view.CheckBoxText
+            android:id="@+id/cbt_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </com.example.seatrend.myapplication.view.CheckBoxLinearlayout>
+
 </LinearLayout>
