@@ -21,6 +21,13 @@
         android:id="@+id/m_video_view"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/textcolor"
+        android:layout_gravity="center_horizontal"/>
     <ProgressBar
         android:id="@+id/m_progress_bar"
         android:layout_width="match_parent"

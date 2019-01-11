@@ -26,7 +26,7 @@ public class StringUtils {
 
     public static String longToStringData(long date) {
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("mm:ss", Locale.CHINA); // "yyyy-MM-dd HH:mm:ss"
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.CHINA); // "yyyy-MM-dd HH:mm:ss"
             return sdf.format(new Date(date));
         } catch (Exception e) {
             return null;

@@ -20,12 +20,13 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.seatrend.myapplication.R;
+import com.example.seatrend.myapplication.util.StringUtils;
 
 public class NetWorkVideoActivity extends AppCompatActivity {
 
     private VideoView mVideoView;
     private ProgressBar mProgressBar;
-    private TextView tvTips;
+    private TextView tvTips,tvTime;
     private Button btnFull;
     private static final int UPDATE_BUFFER_PROGRESS_CODE=7;
     private static final int UPDATE_PROGRESS_CODE=6;
@@ -46,19 +47,10 @@ public class NetWorkVideoActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-
-            if (msg.what==UPDATE_PROGRESS_CODE){
-
-            }else if (msg.what==UPDATE_PROGRESS_CODE){
-                Log.i(TAG,"CurrentPosition= "+mVideoView.getCurrentPosition());
-                mProgressBar.setProgress(mVideoView.getCurrentPosition());
-
-                sendEmptyMessageDelayed(UPDATE_PROGRESS_CODE,1000);
-            }
-
             switch (msg.what){
                 case UPDATE_PROGRESS_CODE:
                     mProgressBar.setProgress(mVideoView.getCurrentPosition());
+                    tvTime.setText(StringUtils.longToStringData(1547136000000l+mVideoView.getCurrentPosition()));
 
                     //每隔1秒更新进度条
                     sendEmptyMessageDelayed(UPDATE_PROGRESS_CODE,1000);
@@ -86,6 +78,7 @@ public class NetWorkVideoActivity extends AppCompatActivity {
         mVideoView=findViewById(R.id.m_video_view);
         mProgressBar=findViewById(R.id.m_progress_bar);
         tvTips=findViewById(R.id.tv_tips);
+        tvTime=findViewById(R.id.tv_time);
         btnFull=findViewById(R.id.btn_full);
 
        // MediaController mediaController=new MediaController(this);
