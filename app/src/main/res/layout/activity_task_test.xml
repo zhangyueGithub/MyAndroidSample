@@ -23,6 +23,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="5dp"
+        android:visibility="gone"
         android:spinnerMode="dialog"/>
     <ViewStub
         android:id="@+id/view_stub"
@@ -30,10 +31,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout="@layout/testitem"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:visibility="gone"/>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
         <Button
             android:id="@+id/btn1"
             android:layout_width="wrap_content"
@@ -47,6 +50,21 @@
             android:onClick="OnClickBtn2"
             android:text="button2"/>
     </RelativeLayout>
+
+    <com.example.seatrend.myapplication.JavaTest.MyView
+        android:id="@+id/mte_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/theme_color"/>
+
+    <com.example.seatrend.myapplication.view.TextConfigNumberPicker
+        android:id="@+id/np"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+    </com.example.seatrend.myapplication.view.TextConfigNumberPicker>
 
 
 

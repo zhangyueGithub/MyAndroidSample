@@ -32,7 +32,8 @@ public class NetWorkVideoActivity extends AppCompatActivity {
     private static final int UPDATE_PROGRESS_CODE=6;
     private static final String TAG="LOGMES";
     //http:/api.m.mtime.cn/PageSubArea/TrailerList.api           测试地址 里面一大堆
-    String path="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8";//播放源
+   // String path="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8";//播放源
+    String path="http://vfx.mtime.cn/Video/2019/a1/21/mp4/190121221027701384.mp4";//播放源
     String YsbAd = "http://v.ysbang.cn/data/test/test0.mp4";
     String test1 = "http://v.ysbang.cn//data/video/2015/rkb/2015rkb01.mp4";
     String test2 = "http://vfx.mtime.cn/Video/2018/12/28/mp4/181228150811700206.mp4";
@@ -84,9 +85,9 @@ public class NetWorkVideoActivity extends AppCompatActivity {
        // MediaController mediaController=new MediaController(this);
       //  mVideoView.setMediaController(mediaController);
 
-       // mVideoView.setVideoPath(path);
+        mVideoView.setVideoPath(path);
        // mVideoView.setVideoPath(YsbAd);
-        mVideoView.setVideoPath(test4);
+       // mVideoView.setVideoPath(test4);
         mVideoView.requestFocus();
         mVideoView.setOnErrorListener(errorListener);
         mVideoView.setOnPreparedListener(preparedListener);

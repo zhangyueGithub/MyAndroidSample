@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -31,14 +32,21 @@ import com.example.seatrend.myapplication.JavaTest.RSAUtils;
 import com.example.seatrend.myapplication.JavaTest.Utils;
 import com.example.seatrend.myapplication.JavaTest.WebViewActivity;
 import com.example.seatrend.myapplication.activity.BlueToothActivity;
+import com.example.seatrend.myapplication.activity.CameraActivity;
+import com.example.seatrend.myapplication.activity.FocusListActivity;
 import com.example.seatrend.myapplication.activity.HttpTestActivity;
+import com.example.seatrend.myapplication.activity.ImageTestActivity;
 import com.example.seatrend.myapplication.activity.MyVideoActivity;
 import com.example.seatrend.myapplication.activity.NetWorkVideoActivity;
 import com.example.seatrend.myapplication.activity.QianMingActivity;
+import com.example.seatrend.myapplication.activity.SmartSwipeDemoActivity;
+import com.example.seatrend.myapplication.activity.TaskTestActivity;
+import com.example.seatrend.myapplication.activity.TbsDemoActivity;
 import com.example.seatrend.myapplication.activity.TestDefinedCameraActivity;
 import com.example.seatrend.myapplication.activity.FolatTestActivity;
 import com.example.seatrend.myapplication.activity.SocketDemoActivity;
 import com.example.seatrend.myapplication.activity.VideoActivity;
+import com.example.seatrend.myapplication.activity.ViewPagerDemoActivity;
 import com.example.seatrend.myapplication.activity.ZoomActivity;
 import com.example.seatrend.myapplication.test.TestOnClick;
 
@@ -69,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         mlinear=findViewById(R.id.linear);
 
         Utils.logString(this);
-
+        aesTest();
        // HttpParams params = new BasicHttpParams();
         //intee();
        // inityyyyyyyy();
@@ -151,7 +159,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         byte[] decrypt = AESUtils.decrypt(bytes, PWD);
         String s1 = new String(decrypt);
         Log.i("AESUtils","解密后的数据 -- "+s1);
-
+        String p=Environment.getExternalStorageDirectory().getPath()+"/checkoutside"+System.currentTimeMillis();
+        Log.i("AESUtils","p -- "+p);
     }
 
 
@@ -416,7 +425,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     public void blueToothOnClick(View view) {
         //startActivity(new Intent(this, BlueToothActivity.class));
-        startActivity(new Intent(this, ZoomActivity.class));
+        startActivity(new Intent(this, TaskTestActivity.class));
         //String currentWifiName = Utils.getCurrentWifiName(this);
         //Log.i("currentWifiName"," currentWifiName ==  "+currentWifiName);
     }
@@ -435,5 +444,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     public void playerOnClick3(View view) {
         startActivity(new Intent(this, NetWorkVideoActivity.class));
+    }
+
+    public void focusOnClick(View view) {
+        startActivity(new Intent(this, ViewPagerDemoActivity.class));
     }
 }

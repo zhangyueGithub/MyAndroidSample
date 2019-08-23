@@ -13,15 +13,19 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -83,10 +87,13 @@
         <activity android:name=".activity.QRTestActivity" />
         <activity android:name=".activity.TaskTestActivity" />
         <activity android:name=".activity.CropTestActivity" />
-        <activity android:name=".activity.SocketDemoActivity" />
+        <activity
+            android:name=".activity.SocketDemoActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.CameraActivity" />
         <activity
             android:name=".activity.TestDefinedCameraActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.QianMingActivity"
@@ -96,7 +103,12 @@
         <activity android:name=".activity.VideoActivity" />
         <activity android:name=".activity.MyVideoActivity" />
         <activity android:name=".activity.NetWorkVideoActivity" />
-        <activity android:name=".activity.FullScreenPalyActivity"></activity>
+        <activity android:name=".activity.FullScreenPalyActivity" />
+        <activity android:name=".activity.TbsDemoActivity" />
+        <activity android:name=".activity.ImageTestActivity" />
+        <activity android:name=".activity.FocusListActivity" />
+        <activity android:name=".activity.SmartSwipeDemoActivity" />
+        <activity android:name=".activity.ViewPagerDemoActivity"></activity>
     </application>
 
 </manifest>

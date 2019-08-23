@@ -4,20 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.seatrend.myapplication.activity.SocketDemoActivity"
+    tools:context="com.example.seatrend.myapplication.activity.FocusListActivity"
     android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/et_msg"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="24dp"/>
+        android:layout_height="30dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/m_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/btn_send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send"/>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

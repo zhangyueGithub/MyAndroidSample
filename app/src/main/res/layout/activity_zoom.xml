@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.seatrend.myapplication.activity.ZoomActivity"
     android:orientation="vertical">
-    <com.example.seatrend.myapplication.JavaTest.ZoomImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="matrix"
+    <com.example.seatrend.myapplication.view.ZoomImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@drawable/car_test"/>
 
 </LinearLayout>

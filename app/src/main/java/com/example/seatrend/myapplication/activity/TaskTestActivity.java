@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
+import android.graphics.drawable.ColorDrawable;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Message;
@@ -24,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -31,9 +34,11 @@ import android.widget.Toast;
 
 
 import com.example.seatrend.myapplication.JavaTest.MyHandler;
+import com.example.seatrend.myapplication.JavaTest.MyView;
 import com.example.seatrend.myapplication.JavaTest.SignUtiles;
 import com.example.seatrend.myapplication.R;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -126,17 +131,35 @@ public class TaskTestActivity extends AppCompatActivity {
 
 
     private void initbtn() {
-        btn1.setOnTouchListener(new View.OnTouchListener() {
+        String[] numbers = {"的哈萨克", "大胜靠德", "3方法", "4试试", "5天天", "6谁谁谁", "7日日日", "8试试", "9啥啊", "10得到", "10哦哦"};
+       NumberPicker np= findViewById(R.id.np);
+       np.setDisplayedValues(numbers);
+        np.setMinValue(1);
+       np.setMaxValue(numbers.length);
+        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Log.i("OnClickBtn"," btn1 ---onTouchEvent");
-                return false;
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                //得到选择结果
+                int value = np.getValue();
+                Toast.makeText(TaskTestActivity.this,"--   "+value,Toast.LENGTH_LONG).show();
             }
         });
-
-
     }
-
+    private void setNumberPickerDividerColor(NumberPicker numberPicker) {
+        Field[] pickerFields = NumberPicker.class.getDeclaredFields();
+        for (Field pf : pickerFields) {
+            if (pf.getName().equals("mSelectionDivider")) {
+                pf.setAccessible(true);
+                try {
+                    //设置分割线的颜色值
+                    pf.set(numberPicker, new ColorDrawable(getResources().getColor(R.color.black)));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+    }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -167,6 +190,15 @@ public class TaskTestActivity extends AppCompatActivity {
         List list1=new LinkedList();
         Map map=new HashMap();
         Map map1=new TreeMap();
+
+       MyView mte_view= findViewById(R.id.mte_view);
+        mte_view.setImageOnClick(new MyView.ImageOnClick() {
+            @Override
+            public void OnClick() {
+                Toast.makeText(TaskTestActivity.this,"OnClick",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

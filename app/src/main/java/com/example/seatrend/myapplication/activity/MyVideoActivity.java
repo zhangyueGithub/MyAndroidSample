@@ -45,11 +45,8 @@ public class MyVideoActivity extends AppCompatActivity implements View.OnClickLi
         btnPause=findViewById(R.id.btn_pause);
         mSeekBar=findViewById(R.id.m_seek_bar);
         tvProgress=findViewById(R.id.tv_progress);
-
         btnPause.setOnClickListener(this);
-
         mSurfaceView.getHolder().addCallback(SurfaceHolderCallback);
-
         mSeekBar.setOnSeekBarChangeListener(seekBarChangeListener);
 
     }

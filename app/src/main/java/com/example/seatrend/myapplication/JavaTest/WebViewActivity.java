@@ -1,14 +1,18 @@
 package com.example.seatrend.myapplication.JavaTest;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
@@ -74,6 +78,8 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
         webSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
 
+        mWebView.addJavascriptInterface(this,"jsInterface");
+
         //优先使用缓存:
        // webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         //缓存模式如下：
@@ -91,7 +97,10 @@ public class WebViewActivity extends AppCompatActivity {
 
 
         //方式1. 加载一个网页：
-        mWebView.loadUrl("https://www.baidu.com/");
+        //mWebView.loadUrl("https://www.baidu.com/");
+        mWebView.loadUrl("http://132.232.95.164:15566/mall/receive/findByHome?token=b4e91086936844c8a7dd96079aede6b3&lang=zh_Hans");
+
+        //mWebView.loadUrl("file:///android_asset/testjs.html");
 
         //方式2：加载apk包中的html页面
        // mWebView.loadUrl("file:///android_asset/test.html");
@@ -99,14 +108,24 @@ public class WebViewActivity extends AppCompatActivity {
         //方式3：加载手机本地的html页面
         //mWebView.loadUrl("content://com.android.htmlfileprovider/sdcard/test.html");
 
+        Title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                androidCallJs();
+                //mWebView.loadUrl("javascript:callJS()");
+            }
+        });
+
     }
 
     private void androidCallJs(){
-
+        Log.i("sdsdss","=====androidCallJs==================");
       // 因为该方法在 Android 4.4 版本才可使用，所以使用时需进行版本判断
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
-            mWebView.evaluateJavascript("javascript:callJS()", new ValueCallback<String>() {
+            //String js = "javascript:payResult('" + 2222 + "')";
+            String js = "javascript:alert('hello')";
+            //"javascript:callJS()"
+            mWebView.evaluateJavascript(js, new ValueCallback<String>() {
                 @Override
                 public void onReceiveValue(String value) {
                     //此处为 js 返回的结果
@@ -119,7 +138,13 @@ public class WebViewActivity extends AppCompatActivity {
 
 
     }
+    @JavascriptInterface
+    public void pay(String[] str) {
+       Log.i("sdsdss","成功"+"=============pay==========");
 
+        final String js = "javascript:payResult('" + str[0] + "')";
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -193,6 +218,7 @@ public class WebViewActivity extends AppCompatActivity {
         }
 
 
+
     };
 
     private WebChromeClient mWebChromeClient=new WebChromeClient(){
@@ -213,6 +239,17 @@ public class WebViewActivity extends AppCompatActivity {
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
             //响应 js的 对话框
+            AlertDialog.Builder b = new AlertDialog.Builder(WebViewActivity.this);
+            b.setTitle("Alert");
+            b.setMessage(message);
+            b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    result.confirm();
+                }
+            });
+            b.setCancelable(false);
+            b.create().show();
             return super.onJsAlert(view, url, message, result);
         }
     };
